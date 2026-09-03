@@ -8,6 +8,7 @@
 
 #include <QApplication>
 #include <QStyleFactory>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
     QApplication application(argc, argv);
     
     QApplication::setStyle(QStyleFactory::create("macintosh"));
-  
+    
     application.setStyleSheet(R"(
     QMainWindow {
         background-color: #202124;
@@ -64,6 +65,7 @@ int main(int argc, char *argv[])
     // system to display it once the event loop begins processing events.
     window.show();
 
+    qDebug() << "rendered window!";
     // exec() starts Qt's event loop. The loop waits for mouse, keyboard, timer,
     // paint, serial/network, and other events and dispatches them to QObjects.
     // It returns when the application quits, normally after the last window is
